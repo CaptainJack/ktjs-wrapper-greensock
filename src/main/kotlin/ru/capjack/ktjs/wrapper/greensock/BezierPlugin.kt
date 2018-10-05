@@ -1,4 +1,4 @@
 package ru.capjack.ktjs.wrapper.greensock
 
-@JsModule("ktjs-wrapper-greensock/plugin/BezierPlugin.min")
+@JsModule("ktjs-wrapper-greensock/plugins/BezierPlugin.min")
 external object BezierPlugin
