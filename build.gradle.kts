@@ -1,11 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
+import ru.capjack.degos.publish.DegosPublishExtension
 
 group = "ru.capjack.ktjs"
 
 plugins {
-	id("kotlin2js") version "1.2.40"
-	id("ru.capjack.degos.publish") version "1.5.0-dev.4+137b51a"
-	id("nebula.release") version "6.0.0"
+	id("kotlin2js") version "1.2.61"
+	id("ru.capjack.degos.publish") version "1.7.0"
+	id("nebula.release") version "6.3.5"
 }
 
 repositories {
@@ -16,8 +17,15 @@ dependencies {
 	implementation(kotlin("stdlib-js"))
 }
 
+
+degosPublish {
+	publicationSources = DegosPublishExtension.PublicationSource.ALWAYS
+}
+
 tasks.withType<Kotlin2JsCompile> {
 	kotlinOptions {
 		moduleKind = "amd"
+		sourceMap = true
+		sourceMapEmbedSources = "always"
 	}
 }
